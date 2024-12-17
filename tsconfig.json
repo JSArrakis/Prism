@@ -12,7 +12,17 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "allowJs": true,
-    "outDir": ".erb/dll"
+    "outDir": ".erb/dll",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "jsxImportSource": "@emotion/react",
+    "baseUrl": "./",
+    "paths": {
+      "@navigation": ["src/renderer/navigation"],
+      "@navigation/*": ["src/renderer/navigation/*"],
+      "@screens": ["src/renderer/screens"],
+      "@screens/*": ["src/renderer/screens/*"]
+    }
   },
   "exclude": ["test", "release/build", "release/app/dist", ".erb/dll"]
 }

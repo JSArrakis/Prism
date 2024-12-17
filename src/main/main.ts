@@ -48,17 +48,19 @@ const installExtensions = async () => {
   const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
   const extensions = ['REACT_DEVELOPER_TOOLS'];
 
-  return installer
-    .default(
-      extensions.map((name) => installer[name]),
-      forceDownload,
-    )
-    .catch(console.log);
+  // Comment out the following lines to disable extension loading
+  // return installer
+  //   .default(
+  //     extensions.map((name) => installer[name]),
+  //     forceDownload,
+  //   )
+  //   .catch(console.log);
 };
 
 const createWindow = async () => {
   if (isDebug) {
-    await installExtensions();
+    // Comment out the following line to disable extension loading
+    // await installExtensions();
   }
 
   const RESOURCES_PATH = app.isPackaged
