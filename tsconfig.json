@@ -18,10 +18,16 @@
     "jsxImportSource": "@emotion/react",
     "baseUrl": "./",
     "paths": {
+      "@assets": ["assets"],
+      "@assets/*": ["assets/*"],
+      "@models": ["src/models"],
+      "@models/*": ["src/models/*"],
       "@navigation": ["src/renderer/navigation"],
       "@navigation/*": ["src/renderer/navigation/*"],
       "@screens": ["src/renderer/screens"],
-      "@screens/*": ["src/renderer/screens/*"]
+      "@screens/*": ["src/renderer/screens/*"],
+      "@services": ["src/services"],
+      "@services/*": ["src/services/*"]
     }
   },
   "exclude": ["test", "release/build", "release/app/dist", ".erb/dll"]

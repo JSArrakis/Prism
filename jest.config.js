@@ -10,8 +10,11 @@ module.exports = {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>/.erb/mocks/fileMock.js',
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+    '^@assets/(.*)$': '<rootDir>/assets/$1',
+    '^@models/(.*)$': '<rootDir>/src/renderer/models/$1',
     '^@navigation/(.*)$': '<rootDir>/src/renderer/navigation/$1',
     '^@screens/(.*)$': '<rootDir>/src/renderer/screens/$1',
+    '^@services/(.*)$': '<rootDir>/src/renderer/services/$1',
     ...pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/' }),
   },
   setupFiles: ['./.erb/scripts/check-build-exists.ts'],

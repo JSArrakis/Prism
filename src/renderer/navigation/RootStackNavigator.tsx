@@ -1,10 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
-import { Splash } from '@screens';
+import { Home, Splash } from '@screens';
 
 const RootStackNavigator = () => {
   return (
     <Routes>
       <Route path="/" element={<Splash />} />
+      <Route path="/home" element={<Home />} />
     </Routes>
   );
 };
