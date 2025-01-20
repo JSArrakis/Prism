@@ -24,5 +24,7 @@ module.exports = {
   testPathIgnorePatterns: ['release/app/dist', 'release/app'],
   transform: {
     '\\.(ts|tsx|js|jsx)$': 'ts-jest',
+    '\\.css$': '<rootDir>/cssTransform.js',
   },
+  transformIgnorePatterns: ['node_modules/(?!material-symbols)'],
 };

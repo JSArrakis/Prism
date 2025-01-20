@@ -15,7 +15,6 @@
     "outDir": ".erb/dll",
     "allowImportingTsExtensions": true,
     "noEmit": true,
-    "jsxImportSource": "@emotion/react",
     "baseUrl": "./",
     "paths": {
       "@assets": ["assets"],
