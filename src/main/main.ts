@@ -121,13 +121,6 @@ const createWindow = async () => {
     }
   });
 
-  // Inject the Google Fonts CDN link for Material Symbols
-  mainWindow.webContents.on('did-finish-load', () => {
-    mainWindow?.webContents.insertCSS(`
-      @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded');
-    `);
-  });
-
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line
   new AppUpdater();
