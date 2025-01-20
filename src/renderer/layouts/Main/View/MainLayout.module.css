@@ -1,0 +1,104 @@
+.container {
+  display: flex;
+  height: 100vh;
+  cursor: default;
+}
+
+.sidebar {
+  width: 175px;
+  min-width: 175px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebarTop {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebarBottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.sidebarContent button,
+.sidebarBottom button {
+  width: 100%;
+}
+
+.subButtons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.subButtons.expanded {
+  max-height: 600px; /* Adjust this value based on the content */
+}
+
+.versionText {
+  font-size: 0.7em;
+  margin: 2px 0;
+  padding: 0;
+}
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Add specific button styles */
+.mediaButton {
+  background-color: blue;
+  color: white;
+}
+
+.mediaButton:hover {
+  background-color: darkblue;
+}
+
+.subButton {
+  background-color: lightblue;
+  color: black;
+}
+
+.subButton:hover {
+  background-color: deepskyblue;
+}
+
+.collectionButton {
+  background-color: green;
+  color: white;
+}
+
+.collectionButton:hover {
+  background-color: darkgreen;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}

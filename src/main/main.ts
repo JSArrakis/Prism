@@ -9,7 +9,14 @@
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow, shell, ipcMain } from 'electron';
+import {
+  app,
+  BrowserWindow,
+  shell,
+  ipcMain,
+  globalShortcut,
+  Menu,
+} from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
@@ -40,7 +47,7 @@ const isDebug =
   process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true';
 
 if (isDebug) {
-  require('electron-debug')();
+  require('electron-debug')({ showDevTools: false });
 }
 
 const installExtensions = async () => {
@@ -101,12 +108,24 @@ const createWindow = async () => {
   });
 
   const menuBuilder = new MenuBuilder(mainWindow);
-  menuBuilder.buildMenu();
+  const menu = menuBuilder.buildMenu();
+  Menu.setApplicationMenu(null); // Hide the menu initially
 
-  // Open urls in the user's browser
-  mainWindow.webContents.setWindowOpenHandler((edata) => {
-    shell.openExternal(edata.url);
-    return { action: 'deny' };
+  // Register a global shortcut to toggle the menu visibility
+  globalShortcut.register('CommandOrControl+Shift+M', () => {
+    const currentMenu = Menu.getApplicationMenu();
+    if (currentMenu) {
+      Menu.setApplicationMenu(null);
+    } else {
+      Menu.setApplicationMenu(menu);
+    }
+  });
+
+  // Inject the Google Fonts CDN link for Material Symbols
+  mainWindow.webContents.on('did-finish-load', () => {
+    mainWindow?.webContents.insertCSS(`
+      @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded');
+    `);
   });
 
   // Remove this if your app does not use auto updates
