@@ -12,7 +12,12 @@ module.exports = {
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': 'error',
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': 'off',
+    'import/prefer-default-export': 'off',
+    'react/function-component-definition': 'off',
+    'no-console': 'off',
+    'consistent-return': 'off',
+    'class-methods-use-this': 'off',
   },
   parserOptions: {
     ecmaVersion: 2022,

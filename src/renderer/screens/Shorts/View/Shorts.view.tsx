@@ -11,7 +11,7 @@ const ShortsView: FC<ShortsViewProps> = ({ viewModel }) => {
     <div className={styles.screen}>
       <h1>Shorts</h1>
       <p>Content goes here</p>
-      <div className={styles.mainContent}></div>
+      <div className={styles.mainContent} />
     </div>
   );
 };

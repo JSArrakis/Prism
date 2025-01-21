@@ -1,4 +1,4 @@
-import { FC, CSSProperties } from 'react';
+import React, { FC, CSSProperties } from 'react';
 import classNames from 'classnames';
 import styles from './Button.module.css';
 
@@ -9,9 +9,15 @@ interface ButtonProps {
   className?: string;
 }
 
-const Button: FC<ButtonProps> = ({ onClick, style, children, className }) => {
+const Button: FC<ButtonProps> = function Button({
+  onClick,
+  style,
+  children,
+  className,
+}) {
   return (
     <button
+      type="button"
       className={classNames(styles.button, className)}
       onClick={onClick}
       style={style}
@@ -19,6 +25,11 @@ const Button: FC<ButtonProps> = ({ onClick, style, children, className }) => {
       {children}
     </button>
   );
+};
+
+Button.defaultProps = {
+  style: {},
+  className: '',
 };
 
 export default Button;

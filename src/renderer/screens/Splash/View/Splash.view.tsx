@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { ActivityBar } from '../../../components';
-import styles from './Splash.module.css';
 import assets from '@assets';
 import classNames from 'classnames';
+import { ActivityBar } from '../../../components';
+import styles from './Splash.module.css';
 import 'material-symbols';
 import { SplashViewModel } from './Splash.viewmodel';
 

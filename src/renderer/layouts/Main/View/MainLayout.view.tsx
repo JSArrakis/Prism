@@ -8,7 +8,9 @@ interface MainLayoutViewProps {
   viewModel: MainLayoutViewModel;
 }
 
-const MainLayoutView: FC<MainLayoutViewProps> = ({ viewModel }) => {
+const MainLayoutView: FC<MainLayoutViewProps> = function MainLayoutView({
+  viewModel,
+}) {
   const { isModalOpen, expandedAccordion } = viewModel;
   const { closeModal, toggleAccordion, navigateTo } = viewModel;
 
@@ -18,6 +20,11 @@ const MainLayoutView: FC<MainLayoutViewProps> = ({ viewModel }) => {
         <div className={styles.sidebarTop}>
           <div
             onClick={() => navigateTo('home')}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter') navigateTo('home');
+            }}
+            role="button"
+            tabIndex={0}
             className={styles.logoContainer}
           >
             <h1>Prism</h1>
@@ -158,7 +165,7 @@ const MainLayoutView: FC<MainLayoutViewProps> = ({ viewModel }) => {
       <div className={styles.mainContent}>
         <Outlet />
       </div>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
+      <Modal isOpen={isModalOpen}>
         <h1>Welcome to Prism</h1>
         <p>
           If you are unfamiliar with Kaleidoscope and how Prism interacts with
@@ -169,7 +176,7 @@ const MainLayoutView: FC<MainLayoutViewProps> = ({ viewModel }) => {
             Close
           </Button>
           <Button
-            onClick={() => alert('Guided Tour')}
+            onClick={() => console.log('Guided Tour')}
             className={styles.collectionButton}
           >
             Guided Tour

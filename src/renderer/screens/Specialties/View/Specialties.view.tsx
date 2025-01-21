@@ -11,7 +11,7 @@ const SpecialtiesView: FC<SpecialtiesViewProps> = ({ viewModel }) => {
     <div className={styles.screen}>
       <h1>Specialties</h1>
       <p>Content goes here</p>
-      <div className={styles.mainContent}></div>
+      <div className={styles.mainContent} />
     </div>
   );
 };

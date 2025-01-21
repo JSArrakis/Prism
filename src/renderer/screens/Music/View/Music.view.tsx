@@ -11,7 +11,7 @@ const MusicView: FC<MusicViewProps> = ({ viewModel }) => {
     <div className={styles.screen}>
       <h1>Music</h1>
       <p>Content goes here</p>
-      <div className={styles.mainContent}></div>
+      <div className={styles.mainContent} />
     </div>
   );
 };

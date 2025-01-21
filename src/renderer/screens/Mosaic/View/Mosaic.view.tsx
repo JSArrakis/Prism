@@ -11,7 +11,7 @@ const MosaicView: FC<MosaicViewProps> = ({ viewModel }) => {
     <div className={styles.screen}>
       <h1>Mosaic</h1>
       <p>Content goes here</p>
-      <div className={styles.mainContent}></div>
+      <div className={styles.mainContent} />
     </div>
   );
 };

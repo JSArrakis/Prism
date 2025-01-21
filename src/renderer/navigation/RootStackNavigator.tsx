@@ -20,7 +20,8 @@ import {
   Splash,
 } from '@screens';
 import MainLayout from '../layouts/Main/MainLayout';
-const RootStackNavigator = () => {
+
+function RootStackNavigator() {
   return (
     <Routes>
       <Route path="/" element={<Splash />} />
@@ -45,6 +46,6 @@ const RootStackNavigator = () => {
       </Route>
     </Routes>
   );
-};
+}
 
 export default RootStackNavigator;

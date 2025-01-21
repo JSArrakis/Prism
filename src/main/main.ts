@@ -9,14 +9,7 @@
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import {
-  app,
-  BrowserWindow,
-  shell,
-  ipcMain,
-  globalShortcut,
-  Menu,
-} from 'electron';
+import { app, BrowserWindow, ipcMain, globalShortcut, Menu } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
@@ -49,20 +42,6 @@ const isDebug =
 if (isDebug) {
   require('electron-debug')({ showDevTools: false });
 }
-
-const installExtensions = async () => {
-  const installer = require('electron-devtools-installer');
-  const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
-  const extensions = ['REACT_DEVELOPER_TOOLS'];
-
-  // Comment out the following lines to disable extension loading
-  // return installer
-  //   .default(
-  //     extensions.map((name) => installer[name]),
-  //     forceDownload,
-  //   )
-  //   .catch(console.log);
-};
 
 const createWindow = async () => {
   if (isDebug) {

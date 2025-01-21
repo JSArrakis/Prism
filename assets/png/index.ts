@@ -1,3 +1,5 @@
+import klogo from './klogo/k-logo.png';
+
 export default {
-  klogo: require('./klogo/k-logo.png'),
+  klogo,
 };

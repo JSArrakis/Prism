@@ -35,5 +35,5 @@ export {
   Shorts,
   Shows,
   Specialties,
-  Splash
+  Splash,
 };

@@ -11,7 +11,7 @@ const PromosView: FC<PromosViewProps> = ({ viewModel }) => {
     <div className={styles.screen}>
       <h1>Promos</h1>
       <p>Content goes here</p>
-      <div className={styles.mainContent}></div>
+      <div className={styles.mainContent} />
     </div>
   );
 };

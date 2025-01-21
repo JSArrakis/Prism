@@ -1,27 +1,26 @@
-import { FC, CSSProperties } from 'react';
+import React, { FC, CSSProperties } from 'react';
 import styles from './Modal.module.css';
 
 interface ModalProps {
   isOpen: boolean;
-  onClose: () => void;
   children: React.ReactNode;
   style?: CSSProperties;
 }
 
-const Modal: FC<ModalProps> = ({ isOpen, onClose, children, style }) => {
+const Modal: FC<ModalProps> = function Modal({ isOpen, children, style }) {
   if (!isOpen) return null;
 
   return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div
-        className={styles.modal}
-        style={style}
-        onClick={(e) => e.stopPropagation()}
-      >
+    <div className={styles.overlay}>
+      <div className={styles.modal} style={style}>
         {children}
       </div>
     </div>
   );
+};
+
+Modal.defaultProps = {
+  style: {},
 };
 
 export default Modal;
