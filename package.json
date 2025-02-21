@@ -80,11 +80,14 @@
     "electron-debug": "^3.2.0",
     "electron-log": "^4.4.8",
     "electron-updater": "^6.1.4",
+    "fuse.js": "^7.1.0",
+    "fuzzysort": "^3.1.0",
     "material-symbols": "^0.27.2",
     "minimatch": "^3.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.16.0"
+    "react-router-dom": "^6.16.0",
+    "uuid": "^11.0.5"
   },
   "devDependencies": {
     "@electron/rebuild": "^3.3.0",
@@ -95,6 +98,7 @@
     "@testing-library/react": "^14.0.0",
     "@types/glob": "^8.1.0",
     "@types/jest": "^29.5.5",
+    "@types/lodash.debounce": "^4.0.9",
     "@types/node": "20.6.2",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
@@ -137,7 +141,7 @@
     "react-test-renderer": "^18.2.0",
     "rimraf": "^5.0.1",
     "sass": "^1.67.0",
-    "sass-loader": "^13.3.2",
+    "sass-loader": "^16.0.4",
     "style-loader": "^3.3.3",
     "terser-webpack-plugin": "^5.3.9",
     "ts-jest": "^29.1.1",

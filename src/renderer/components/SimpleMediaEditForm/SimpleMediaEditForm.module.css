@@ -1,0 +1,283 @@
+.simpleItemEditContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background: #1c272d;
+  border-radius: 5px;
+  color: white;
+  justify-content: space-between;
+}
+
+.editModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.editModalCardTitle {
+  font-weight: bold;
+}
+
+.closeEdit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: linear-gradient(330deg, #8000ff, #ff00b3);
+  height: 24px;
+  width: 24px;
+  border-radius: 5px;
+}
+
+.closeEdit:hover {
+  background: deepskyblue;
+}
+
+.editInputLabel {
+  width: 50px;
+}
+
+.editInputField {
+  width: 100%;
+  height: 18px;
+  background: #2e3b44;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0 5px;
+}
+
+.editInputField::placeholder {
+  text-align: left;
+}
+
+.editModalFile {
+  display: flex;
+  flex-direction: row;
+}
+
+.topBody {
+  display: flex;
+  flex-direction: row;
+}
+
+.editModalTitle {
+  display: flex;
+  flex-direction: column;
+}
+
+.editModalImdb {
+  margin-top: 7px;
+  display: flex;
+  flex-direction: row;
+}
+
+.editModalAlias {
+  margin-top: 7px;
+  display: flex;
+  flex-direction: row;
+}
+
+.editModalTitle {
+  margin-top: 7px;
+  display: flex;
+  flex-direction: row;
+}
+.mediaLabels {
+  width: calc(48% - 4px);
+  display: flex;
+  flex-direction: column;
+  margin-right: 4px;
+}
+
+.collectionContainer {
+  width: calc(52% - 3px);
+  display: flex;
+  flex-direction: column;
+  margin-left: 3px;
+}
+
+.collectionHeader {
+  margin-top: 7px;
+  display: flex;
+  flex-direction: row;
+}
+
+.collectionLabel {
+  padding-right: 5px;
+}
+
+.collectionSearch {
+  width: 100%;
+  height: 18px;
+  background: #2e3b44;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0 5px;
+}
+
+.collectionList {
+  margin-top: 7px;
+  height: 100%;
+  width: 100%;
+  background: #2e3b44;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 7px;
+}
+
+.tagListHeader {
+  margin-top: 7px;
+  display: flex;
+  flex-direction: row;
+}
+
+.tagListContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.tagsLabel {
+  width: 50px;
+}
+
+.dropdown {
+  width: 90px;
+  height: 18px;
+  background: #2e3b44;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.tagListSearchInput {
+  width: 100%;
+  height: 18px;
+  background: #2e3b44;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0 5px;
+}
+
+.tagListSearchInput::placeholder {
+  text-align: left;
+}
+
+.tagList {
+  width: 200px;
+  min-width: 200px;
+  height: 100px;
+  margin-right: 7px;
+  background: #2e3b44;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  overflow-y: auto;
+}
+
+.addChipButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+  width: 37px;
+  margin-right: 7px;
+  cursor: pointer;
+  background: linear-gradient(330deg, #8000ff, #aa00aa);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  overflow-y: auto;
+}
+
+.addChipButton:hover {
+  background: deepskyblue;
+}
+
+.tagChipList {
+  height: 90px;
+  width: 100%;
+  background: #2e3b44;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  overflow-y: auto;
+}
+
+.tagChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #5d00ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 2px;
+  padding-left: 10px;
+  margin: 2px;
+  font-size: 0.85em;
+}
+
+.tagChip .closeButton {
+  margin-left: 2px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.3em;
+}
+
+.tagList:focus {
+  outline: none;
+  border: none;
+}
+
+.tagList::-webkit-scrollbar {
+  width: 12px;
+}
+
+.tagList::-webkit-scrollbar-track {
+  background: #2e3b44;
+  border-radius: 5px;
+}
+
+.tagList::-webkit-scrollbar-thumb {
+  background: #5d00ff;
+  border-radius: 5px;
+}
+
+.tagList::-webkit-scrollbar-thumb:hover {
+  background: deepskyblue;
+}
+
+.editModalId {
+  color: white;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.editInputField:focus,
+.dropdown:focus,
+.tagListSearchInput:focus {
+  outline: none;
+}
+
+.hidePlaceholder::placeholder {
+  color: transparent;
+}

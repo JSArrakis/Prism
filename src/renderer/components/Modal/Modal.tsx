@@ -5,13 +5,19 @@ interface ModalProps {
   isOpen: boolean;
   children: React.ReactNode;
   style?: CSSProperties;
+  fullScreen?: boolean;
 }
 
-const Modal: FC<ModalProps> = function Modal({ isOpen, children, style }) {
+const Modal: FC<ModalProps> = function Modal({
+  isOpen,
+  children,
+  style,
+  fullScreen,
+}) {
   if (!isOpen) return null;
 
   return (
-    <div className={styles.overlay}>
+    <div className={fullScreen ? styles.overlay : styles.overlayParent}>
       <div className={styles.modal} style={style}>
         {children}
       </div>
@@ -21,6 +27,7 @@ const Modal: FC<ModalProps> = function Modal({ isOpen, children, style }) {
 
 Modal.defaultProps = {
   style: {},
+  fullScreen: true,
 };
 
 export default Modal;

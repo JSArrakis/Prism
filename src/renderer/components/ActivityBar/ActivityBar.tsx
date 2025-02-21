@@ -7,19 +7,14 @@ interface ActivityBarProps {
 }
 
 const ActivityBar: FC<ActivityBarProps> = function ActivityBar({
-  barStyle,
-  pulseStyle,
+  barStyle = {},
+  pulseStyle = {},
 }) {
   return (
     <div className={styles.activityBar} style={barStyle}>
       <div className={styles.pulse} style={pulseStyle} />
     </div>
   );
-};
-
-ActivityBar.defaultProps = {
-  barStyle: {},
-  pulseStyle: {},
 };
 
 export default ActivityBar;

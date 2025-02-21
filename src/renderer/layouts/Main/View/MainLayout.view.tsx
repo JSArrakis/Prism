@@ -20,9 +20,6 @@ const MainLayoutView: FC<MainLayoutViewProps> = function MainLayoutView({
         <div className={styles.sidebarTop}>
           <div
             onClick={() => navigateTo('home')}
-            onKeyPress={(e) => {
-              if (e.key === 'Enter') navigateTo('home');
-            }}
             role="button"
             tabIndex={0}
             className={styles.logoContainer}
@@ -165,19 +162,23 @@ const MainLayoutView: FC<MainLayoutViewProps> = function MainLayoutView({
       <div className={styles.mainContent}>
         <Outlet />
       </div>
-      <Modal isOpen={isModalOpen}>
+      <Modal
+        isOpen={isModalOpen}
+        fullScreen
+        style={{ padding: '20px', width: '100%', maxWidth: '500px' }}
+      >
         <h1>Welcome to Prism</h1>
         <p>
           If you are unfamiliar with Kaleidoscope and how Prism interacts with
           it, click here for a guided tour!
         </p>
         <div className={styles.buttonContainer}>
-          <Button onClick={closeModal} className={styles.mediaButton}>
+          <Button onClick={closeModal} className={styles.closeTutorialButton}>
             Close
           </Button>
           <Button
             onClick={() => console.log('Guided Tour')}
-            className={styles.collectionButton}
+            className={styles.guidedTourButton}
           >
             Guided Tour
           </Button>
