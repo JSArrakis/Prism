@@ -63,7 +63,9 @@ const MediaListItem: FC<MediaListItemProps> = ({
             className={styles.titleInput}
           />
         )}
-        <div className={styles.itemPath}>{getFileName(item.path)}</div>
+        <div className={styles.itemPathContainer}>
+          <div></div><div className={styles.itemPath}>{getFileName(item.path)}</div>
+        </div>
       </div>
       <div className={styles.actionsRow}>
         <div className={styles.saveRow} onClick={handleTitleSave}>

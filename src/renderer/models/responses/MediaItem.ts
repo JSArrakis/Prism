@@ -1,3 +1,5 @@
+import { CollectionReference } from './Collection';
+
 export interface MediaItem {
   id: string;
   title?: string;
@@ -8,5 +10,14 @@ export interface MediaItem {
   path: string;
   duration?: number;
   durationLimit?: number;
-  franchizes?: string[];
+  collections?: CollectionReference[];
+  episodes?: EpisodeItem[];
+}
+
+export interface EpisodeItem {
+  id: string;
+  title: string;
+  alias?: string;
+  imdb?: string;
+  tags: string[];
 }

@@ -6,6 +6,7 @@ import SimpleMediaEditForm from '../SimpleMediaEditForm/SimpleMediaEditForm';
 import Modal from '../Modal/Modal';
 import useDebounce from 'src/renderer/hooks/useDebounce';
 import { SegmentedTags } from 'src/renderer/models/responses';
+import { Collection } from 'src/renderer/models/responses/Collection';
 
 interface MediaItemListProps {
   items: MediaItem[];
@@ -13,6 +14,7 @@ interface MediaItemListProps {
   isEditModalOpen: boolean;
   selectedItem: MediaItem;
   tags: SegmentedTags;
+  collections: Collection[];
   onEdit: (item: MediaItem) => void;
   onSave: (item: MediaItem) => void;
   onRemove: (item: MediaItem) => void;
@@ -28,6 +30,7 @@ const MediaItemList: FC<MediaItemListProps> = ({
   isEditModalOpen,
   selectedItem,
   tags,
+  collections,
   onEdit,
   onSave,
   onRemove,
@@ -93,6 +96,7 @@ const MediaItemList: FC<MediaItemListProps> = ({
             onDelete={onDelete}
             onSave={onSave}
             onCancel={onEdit}
+            collections={collections}
           />
         </Modal>
       </div>

@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import useRootStack from '@navigation/useRootStack';
 import { Movie, SegmentedTags } from 'src/renderer/models/responses';
 import { normalizeItem } from 'src/renderer/util/helpers/common';
+import { Collection } from 'src/renderer/models/responses/Collection';
 
 interface MoviesData {
   currentMovieList: Movie[];
   selectedMovie: Movie | null;
   isEditModalOpen: boolean;
   tags: SegmentedTags;
+  collections: Collection[];
 }
 interface MoviesActions {
   editMovie: (movie: Movie) => void;
@@ -39,12 +41,54 @@ const useMoviesViewModel = (
   };
 
   const tags: SegmentedTags = {
-    EraTags: ["1970s", "1980s", "1990s", "2000s", "2010s", "2020s"],
-    GenreTags: ["Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mystery", "Romance", "Sci-Fi", "Thriller", "Political", "Space Opera", "Superhero", "Western"],
-    SpecialtyTags: ["Star Wars", "Toonami"],
-    AgeGroupTags: ["Kids", "Family", "Young Adult", "Mature", "All Ages"],
-    HolidayTags: ["Christmas", "Halloween"],
+    EraTags: ['1970s', '1980s', '1990s', '2000s', '2010s', '2020s'],
+    GenreTags: [
+      'Action',
+      'Adventure',
+      'Comedy',
+      'Drama',
+      'Fantasy',
+      'Horror',
+      'Mystery',
+      'Romance',
+      'Sci-Fi',
+      'Thriller',
+      'Political',
+      'Space Opera',
+      'Superhero',
+      'Western',
+    ],
+    SpecialtyTags: ['Star Wars', 'Toonami'],
+    AgeGroupTags: ['Kids', 'Family', 'Young Adult', 'Mature', 'All Ages'],
+    HolidayTags: ['Christmas', 'Halloween'],
   };
+
+  const collections: Collection[] = [
+    {
+      id: '1',
+      title: 'Star Wars',
+      description: 'A collection of Star Wars movies',
+      items: [],
+    },
+    {
+      id: '2',
+      title: 'Marvel Cinematic Universe',
+      description: 'A collection of Marvel movies',
+      items: [],
+    },
+    {
+      id: '3',
+      title: 'James Bond',
+      description: 'A collection of James Bond movies',
+      items: [],
+    },
+    {
+      id: '4',
+      title: 'Harry Potter',
+      description: 'A collection of Harry Potter movies',
+      items: [],
+    },
+  ];
 
   useEffect(() => {
     console.log('Current movie list size:', calculateSize(currentMovieList));
@@ -118,6 +162,7 @@ const useMoviesViewModel = (
     selectedMovie,
     isEditModalOpen,
     tags,
+    collections,
     editMovie,
     deleteMovie,
     saveMovie,

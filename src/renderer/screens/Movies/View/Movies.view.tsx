@@ -92,6 +92,7 @@ const MoviesView: FC<MoviesViewProps> = ({ viewModel }) => {
               type="movie"
               selectedItem={selectedMovie}
               tags={viewModel.tags}
+              collections={viewModel.collections}
               onEdit={handleEdit}
               onSave={saveMovie}
               onRemove={handleRemove}

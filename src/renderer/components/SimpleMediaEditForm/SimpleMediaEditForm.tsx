@@ -6,11 +6,14 @@ import { SegmentedTags } from 'src/renderer/models/responses';
 import { getFileName } from 'src/renderer/util/helpers/common';
 import { TAG_CATEGORIES } from '../../models/constants';
 import useDebounce from 'src/renderer/hooks/useDebounce';
+import CollectionListItem from './CollectionListItem/CollectionListItem';
+import { Collection } from 'src/renderer/models/responses/Collection';
 
 interface SimpleMediaEditFormProps {
   item: MediaItem;
   itemType: string;
   tags: SegmentedTags;
+  collections: Collection[];
   onSave: (item: MediaItem) => void;
   onDelete: (item: MediaItem) => void;
   onCancel: (item: MediaItem) => void;
@@ -20,12 +23,15 @@ const SimpleMediaEditForm: FC<SimpleMediaEditFormProps> = ({
   item,
   itemType,
   tags,
+  collections,
   onSave,
   onDelete,
   onCancel,
 }) => {
   const allTags = Object.values(tags).flat();
   const [tagListSearchTerm, setTagListSearchTerm] = useState('');
+  const [collectionSearch, setCollectionSearch] = useState(true);
+  const [collectionSearchTerm, setCollectionSearchTerm] = useState('');
 
   const [tagChipList, setTagChipList] = useState<string[]>([]);
   const [selectedTagList, setSelectedTagList] = useState<string[]>([]);
@@ -41,6 +47,7 @@ const SimpleMediaEditForm: FC<SimpleMediaEditFormProps> = ({
   const imdbRef = useRef<HTMLInputElement>(null);
   const searchTagsRef = useRef<HTMLInputElement>(null);
   const searchCollectionsRef = useRef<HTMLInputElement>(null);
+  const collectionListRef = useRef<HTMLDivElement>(null);
 
   const onSearch = (searchTerm: string) => {
     if (!searchTerm) {
@@ -94,6 +101,10 @@ const SimpleMediaEditForm: FC<SimpleMediaEditFormProps> = ({
     onSave(updatedItem);
   };
 
+  const toggleCollection = () => {
+    setCollectionSearch(!collectionSearch);
+  };
+
   const handleAddChip = () => {
     const selectedTag = tagListRef.current?.value;
 
@@ -115,6 +126,7 @@ const SimpleMediaEditForm: FC<SimpleMediaEditFormProps> = ({
     e.target.classList.remove(styles.hidePlaceholder);
   };
 
+  const handleCollectionItemSave = (id: string, sequence: number) => {};
   return (
     <div className={styles.simpleItemEditContainer}>
       <div className={styles.editModalHeader}>
@@ -197,20 +209,71 @@ const SimpleMediaEditForm: FC<SimpleMediaEditFormProps> = ({
           </div>
         </div>
         <div className={styles.collectionContainer}>
-          <div className={styles.collectionHeader}>
-            <div className={styles.collectionLabel}>Collections:</div>
-            <input
-              className={styles.collectionSearch}
-              type="text"
-              placeholder="COLLECTION SEARCH"
-              value={tagListSearchTerm}
-              onChange={(e) => setTagListSearchTerm(e.target.value)}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-              ref={searchCollectionsRef}
-            />
-          </div>
-          <div className={styles.collectionList}></div>
+          {collectionSearch ? (
+            <>
+              <div className={styles.collectionSwitchContainer}>
+                <div className={styles.collectionHeader}>
+                  <div className={styles.collectionLabel}>Collections:</div>
+                  <input
+                    className={styles.collectionSearch}
+                    type="text"
+                    placeholder="SEARCH AVAILABLE COLLECTIONS"
+                    value={tagListSearchTerm}
+                    onChange={(e) => setTagListSearchTerm(e.target.value)}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    ref={searchCollectionsRef}
+                  />
+                </div>
+                <div className={styles.collectionList} ref={collectionListRef}>
+                  {collections.map((collection) => (
+                    <CollectionListItem
+                      key={collection.id}
+                      collection={collection}
+                      onSave={handleCollectionItemSave}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div
+                className={styles.collectionSavedSwitch}
+                onClick={() => toggleCollection()}
+              >
+                <div className={styles.collectionSavedSwitchLabel}>SAVED</div>
+                <div className={styles.folderSymbol}>
+                  <span className="material-symbols-rounded">folder</span>
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div
+                className={styles.collectionSearchSwitch}
+                onClick={() => toggleCollection()}
+              >
+                <div className={styles.collectionSearchSwitchLabel}>SEARCH</div>
+                <div className={styles.searchSymbol}>
+                  <span className="material-symbols-rounded">search</span>
+                </div>
+              </div>
+              <div className={styles.collectionSwitchContainer}>
+                <div className={styles.collectionHeader}>
+                  <div className={styles.collectionLabel}>Collections:</div>
+                  <input
+                    className={styles.collectionSearch}
+                    type="text"
+                    placeholder="SEARCH SAVED COLLECTIONS"
+                    value={tagListSearchTerm}
+                    onChange={(e) => setCollectionSearchTerm(e.target.value)}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    ref={searchCollectionsRef}
+                  />
+                </div>
+                <div className={styles.collectionList}></div>
+              </div>
+            </>
+          )}
         </div>
       </div>
       <div className={styles.tagsContainer}>
@@ -240,7 +303,10 @@ const SimpleMediaEditForm: FC<SimpleMediaEditFormProps> = ({
           </div>
         </div>
       </div>
-      <div className={styles.editModalId}>id: {item.id}</div>
+      <div className={styles.editModalId}>
+        <div className={styles.idLabel}>id:</div>
+        <div className={styles.idValue}>{item.id}</div>
+      </div>
     </div>
   );
 };
